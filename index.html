@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Remove Even Numbers</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f9f9f9;
+      text-align: center;
+    }
+
+    input, button {
+      padding: 10px;
+      margin: 10px;
+      font-size: 16px;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #333;
+    }
+
+    .container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 500px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Remove Even Numbers</h2>
+    <p>Enter numbers separated by commas (e.g. 1,2,3,4):</p>
+    <input type="text" id="numberInput" placeholder="Enter numbers here">
+    <br>
+    <button onclick="removeEvenNumbers()">Remove Even Numbers</button>
+
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function removeEvenNumbers() {
+      const input = document.getElementById("numberInput").value;
+      const numbers = input.split(",").map(num => parseInt(num.trim())).filter(n => !isNaN(n));
+      const oddNumbers = numbers.filter(num => num % 2 !== 0);
+      document.getElementById("result").innerHTML = 
+        `<strong>Odd Numbers:</strong> ${oddNumbers.join(", ")}`;
+    }
+  </script>
+</body>
+</html>
